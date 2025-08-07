@@ -18,8 +18,7 @@ from io import StringIO
 import sys
 
 # Variables
-configfile = "config.ini"
-
+configfile = "config/config.ini"
 
 # Fonctions
 def config_read(file:str)->dict:

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.venv/*
-.venv
-=======
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
 
@@ -197,4 +193,3 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
->>>>>>> 60f22a1 (prepare automatisation)
