@@ -136,10 +136,25 @@ def get_tarif_bleu(url:str,out_file:str="tarif_bleu.json")->dict:
         print(f"Erreur lors de la requête : {response.status_code}")
         return tarif
 
+def write_dict_to_json(tarif:dict, out_file:str)->None:
+    """Write a tarif dictionary to a JSON file (overwrites if exists)."""
+    try:
+        with open(out_file, 'w') as json_file:
+            json.dump(tarif, json_file, indent=4)
+    except Exception as e:
+        print(f"Erreur lors de l'écriture du fichier {out_file}: {e}")
+    else:
+        print(f"Fichier écrit: {out_file}")
+
 def main()->None:
     conf = config_read(configfile)
     tempo = get_tarif_tempo(conf['data']['tempo'])
     bleu = get_tarif_bleu(conf['data']['hchp'])
+    # Ensure JSON files are created from the retrieved dicts
+    if tempo:
+        write_dict_to_json(tempo, 'tarif_tempo.json')
+    if bleu:
+        write_dict_to_json(bleu, 'tarif_bleu.json')
     
     
 
