@@ -89,6 +89,8 @@ def get_tarif_tempo(url:str,out_file:str="tarif_tempo.json")->dict:
     
     else:
         print(f"Erreur lors de la requête : {response.status_code}")
+        return tarif
+
 
 def get_tarif_bleu(url:str,out_file:str="tarif_bleu.json")->dict:
     tarif = {}
@@ -132,12 +134,13 @@ def get_tarif_bleu(url:str,out_file:str="tarif_bleu.json")->dict:
     
     else:
         print(f"Erreur lors de la requête : {response.status_code}")
-
+        return tarif
 
 def main()->None:
     conf = config_read(configfile)
     tempo = get_tarif_tempo(conf['data']['tempo'])
     bleu = get_tarif_bleu(conf['data']['hchp'])
+    
     
 
 # Main
